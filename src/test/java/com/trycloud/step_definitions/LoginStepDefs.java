@@ -14,12 +14,12 @@ public class LoginStepDefs {
     @Given("the user logged in as {string}")
     public void the_user_logged_in_as(String userType) {
         //based on input enter that user information
-        String username =null;
-        String password =null;
+        String username ="user101";
+        String password ="Userpass123";
 
-        if(userType.equalsIgnoreCase("driver")){
-            username = ConfigurationReader.getProperty("driver_username");
-            password = ConfigurationReader.getProperty("driver_password");
+        if(userType.equalsIgnoreCase("user101")){
+            username = ConfigurationReader.getProperty("user101");
+            password = ConfigurationReader.getProperty("Userpass123");
         }else if(userType.equalsIgnoreCase("sales manager")){
             username = ConfigurationReader.getProperty("sales_manager_username");
             password = ConfigurationReader.getProperty("sales_manager_password");
@@ -35,6 +35,7 @@ public class LoginStepDefs {
     public void the_user_logged_in_with_username_as_and_password_as(String username, String password) {
       LoginPage loginPage=new LoginPage();
       loginPage.login(username,password);
+
     }
 
 
