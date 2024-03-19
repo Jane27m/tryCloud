@@ -1,6 +1,7 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.CalendarPage;
+import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,15 @@ import io.cucumber.java.en.When;
 public class CalendarStepDef {
 
     CalendarPage calendarPage = new CalendarPage();
+
+    @Given("User is loged in")
+    public void user_is_loged_in() {
+
+    }
+    @Given("User navigate to {string} module")
+    public void user_navigate_to_module(String string) {
+
+    }
 
     @Given("User is on the calendar page")
     public void userIsOnCalendarPage() {
