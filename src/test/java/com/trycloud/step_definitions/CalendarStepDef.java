@@ -1,8 +1,6 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.CalendarPage;
-import com.trycloud.pages.LoginPage;
-import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

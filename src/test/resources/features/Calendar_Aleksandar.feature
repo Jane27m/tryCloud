@@ -1,7 +1,7 @@
 
 Feature: Calendar Module Functionality
   Background:
-    Given User is loged in
+    Given the user logged in with username as "User1" and password as "Userpass123"
     And User navigate to "Calender" module
 
 
