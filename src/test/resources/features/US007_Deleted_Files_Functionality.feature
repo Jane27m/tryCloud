@@ -1,3 +1,4 @@
+@wiki
 Feature: Managing Deleted Files
 
   US:
@@ -7,12 +8,10 @@ Feature: Managing Deleted Files
     Given the user is on the login page
 
 
-
-
   Scenario:
     Given user is on the Files module
     When the user navigates to the Deleted Files tab
-    And the user selects to order files by newest to oldest
+    And the user click Deleted button to order files by newest to oldest
     Then the files should be displayed in the order from newest to oldest
 
 
@@ -20,7 +19,7 @@ Feature: Managing Deleted Files
 
     When the user navigates to the Deleted Files tab
     And the user clicks on the three dots icon next to a deleted file
-    And the user selects the option to delete the file permanently
+    And the user clicks the option to delete the file permanently
     Then the file should be deleted permanently
 
 
