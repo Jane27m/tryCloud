@@ -10,8 +10,8 @@ Feature: Managing Deleted Files
 
   Scenario:
     Given user is on the Files module
-    When the user click to the Deleted files tab
-    And the user click Deleted button to order files by newest to oldest
+    When user click to the Deleted files tab
+    And  user click Deleted button to order files by newest to oldest
     Then the files should be displayed in the order from newest to oldest
 
 
