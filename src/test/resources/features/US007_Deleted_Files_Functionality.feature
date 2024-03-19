@@ -10,20 +10,20 @@ Feature: Managing Deleted Files
 
   Scenario:
     Given user is on the Files module
-    When the user navigates to the Deleted Files tab
+    When the user click to the Deleted files tab
     And the user click Deleted button to order files by newest to oldest
     Then the files should be displayed in the order from newest to oldest
 
 
   Scenario:
 
-    When the user navigates to the Deleted Files tab
-    And the user clicks on the three dots icon next to a deleted file
-    And the user clicks the option to delete the file permanently
+    When  user clicks to the Deleted files tab
+    Then  user clicks on the three dots icon next
+    And  user clicks the option to delete the file permanently
     Then the file should be deleted permanently
 
 
   Scenario:
-    Given the user is on the "Deleted Files" tab
-    When the user restores a deleted file
-    Then the file should be restored
+    Given user clicks to the Deleted files tab
+    When  user restores a deleted file
+    Then file should be restored
