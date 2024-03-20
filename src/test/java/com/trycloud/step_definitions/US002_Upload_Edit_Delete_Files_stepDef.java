@@ -80,7 +80,6 @@ public class US002_Upload_Edit_Delete_Files_stepDef {
         }
     }
 
-
     @And("select new folder line")
     public void selectNewFolderLine() {
         filesPage.newFolderButton.click();
