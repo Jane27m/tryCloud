@@ -30,5 +30,11 @@ public class US007_Deleted_FilesPage {
 
     @FindBy(id="fileList")
     public WebElement fileList;
+
+    @FindBy(id = "fileList")
+    WebElement deletedFileList;
+
+    @FindBy(xpath = "//span[contains(@class, 'modified live-relative-timestamp')]")
+    public WebElement timeStamp;
 }
 
