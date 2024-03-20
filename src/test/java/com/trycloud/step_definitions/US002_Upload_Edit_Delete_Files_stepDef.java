@@ -1,6 +1,7 @@
 package com.trycloud.step_definitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class US002_Upload_Edit_Delete_Files_stepDef {
@@ -20,4 +21,6 @@ public class US002_Upload_Edit_Delete_Files_stepDef {
     public void click_on_upload_file_button() {
 
     }
+
+
 }
