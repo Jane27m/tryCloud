@@ -1,8 +1,9 @@
-@mohammed
+
 Feature: User should be able to create a new conversation, add participant under the Talk module
 
   User Story: As a user, I should be able to create a new conversation, add participant under the Talk module
 
+  @mohammed
   Background:
     Given User is on the login page
     And User navigate to "Talk" module

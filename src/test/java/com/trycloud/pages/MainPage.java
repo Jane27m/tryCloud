@@ -43,8 +43,4 @@ public class MainPage {
     public WebElement accountButton;
 
 
-
-
-
-
 }
