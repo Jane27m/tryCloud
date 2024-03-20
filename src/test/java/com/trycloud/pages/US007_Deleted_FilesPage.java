@@ -27,5 +27,8 @@ public class US007_Deleted_FilesPage {
 
     @FindBy(xpath = "//a[@class='nav-icon-files svg active']")
     public WebElement allFilesButton;
+
+    @FindBy(id="fileList")
+    public WebElement fileList;
 }
 
