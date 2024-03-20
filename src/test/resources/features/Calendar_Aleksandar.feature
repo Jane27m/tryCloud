@@ -4,7 +4,6 @@ Feature: Calendar Module Functionality
     Given the user logged in with username as "User1" and password as "Userpass123"
     And User navigate to "Calender" module
 
-
   Scenario: Display Daily Calendar View
     Given User is on the calendar page
     When User selects the daily view
