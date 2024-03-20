@@ -68,7 +68,7 @@ public class CalendarStepDef {
 
     @Then("Weekly calendar view is displayed")
     public void weeklyCalendarViewIsDisplayed() {
-        Assert.assertTrue( calendarPage.dailyViewButton.getText().contains("Week"));
+        Assert.assertTrue( calendarPage.weeklyViewButton.getText().contains("Week"));
 
     }
 
@@ -81,12 +81,23 @@ public class CalendarStepDef {
 
     @Then("Monthly calendar view is displayed")
     public void monthlyCalendarViewIsDisplayed() {
-        Assert.assertTrue( calendarPage.dailyViewButton.getText().contains("Month"));
+        Assert.assertTrue( calendarPage.monthlyViewButton.getText().contains("Month"));
 
     }
 
     @When("User creates a new event")
     public void userCreatesNewEvent() {
+
+        BrowserUtils.sleep(2);
+        calendarPage.newEventButton.click();
+        BrowserUtils.sleep(1);
+
+        calendarPage.eventTitle.click();
+        calendarPage.eventTitle.sendKeys("Birthday Party");
+
+        BrowserUtils.sleep(1);
+        calendarPage.saveButton.click();
+
 
 
 

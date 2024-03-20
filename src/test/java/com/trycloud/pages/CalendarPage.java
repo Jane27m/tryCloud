@@ -9,16 +9,6 @@ public class CalendarPage {
     public CalendarPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-/*
-    @FindBy(xpath = "//button[@data-view='day']")
-    private WebElement dailyViewButton;
-
-    @FindBy(xpath = "//button[@data-view='week']")
-    private WebElement weeklyViewButton;
-
-    @FindBy(xpath = "//button[@data-view='month']")
-    private WebElement monthlyViewButton;
-*/
 
     @FindBy(xpath = "(//button[@aria-label='Actions'])[1]")
     public WebElement sixDotsButton;
@@ -26,11 +16,20 @@ public class CalendarPage {
     @FindBy(xpath = "(//span[@class='action-button__text'])[3]")
     public WebElement dailyViewButton;
 
-    @FindBy(xpath = "//button[@ng-value='agendaWeek']")
+    @FindBy(xpath = "(//span[@class='action-button__text'])[4]")
     public WebElement weeklyViewButton;
 
-    @FindBy(xpath = "//button[@ng-value='month']")
+    @FindBy(xpath = "(//span[@class='action-button__text'])[5]")
     public WebElement monthlyViewButton;
+
+    @FindBy(xpath = "(//button[@class='button primary new-event'])")
+    public WebElement newEventButton;
+
+    @FindBy(xpath = "(//input[@placeholder='Event title'])")
+    public WebElement eventTitle;
+
+    @FindBy(xpath = "(//button[@class='primary'])")
+    public WebElement saveButton;
 
 
 }
