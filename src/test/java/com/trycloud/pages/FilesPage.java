@@ -5,25 +5,44 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class FilesPage {
     public FilesPage() {
         PageFactory.initElements(Driver.getDriver(), this);
+
     }
 
-    @FindBy(xpath = "//span[@class='icon icon-add']")
+    private final String folderName = "newFolder123";
+    private final String fileName = "Screen";
+
+    @FindBy(xpath = "//a[@class='button new']")
     public WebElement addButton;
-
-    @FindBy(xpath = "//span[normalize-space()='Upload file']")
+    @FindBy(css = "input[type='file']")
     public WebElement uploadFileButton;
-
-    @FindBy(xpath = "//span[@class='displayname'][normalize-space()='New folder']")
+    @FindBy(xpath = "//a[@data-filetype='folder']")
     public WebElement newFolderButton;
-
-    @FindBy(xpath = "//tr[@class='ui-droppable highlighted']//span[@class='icon icon-more']")
-    public WebElement moreIcon;
-
-    @FindBy(xpath = "(//span[@class='icon icon-delete'])[2]")
+    @FindBy(xpath = " //span[@class='innernametext']")
+    public List<WebElement> uploadedFiles;
+    @FindBy(xpath = "//a[@class='action action-menu permanent']")
+    public List<WebElement> threeDotsMenu;
+    @FindBy(xpath = "//a[@data-action='Delete']")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']")
+    public WebElement actionMenu;
+    @FindBy(xpath = "//*[.='" + fileName + "']/../..//a[2]")
+    public WebElement threeDotsMenuForUploadedFile;
+    @FindBy(xpath = "//input[@value='New folder']")
+    public WebElement folderNameInput;
+    @FindBy(xpath = "//input[@class='icon-confirm']")
+    public WebElement folderConfirm;
+    @FindBy(xpath = "//*[.='" + folderName + "']/../..//a[2]")
+    public WebElement threeDotsMenuForNewFolder;
+    @FindBy(xpath = "//span[@class='dirinfo']")
+    public WebElement foldersCount;
+    @FindBy(xpath = "//span[@class='fileinfo']")
+    public WebElement filesCount;
 
 
 }
