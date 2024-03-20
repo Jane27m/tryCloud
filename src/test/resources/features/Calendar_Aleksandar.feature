@@ -6,6 +6,7 @@ Feature: Calendar Module Functionality
 
   Scenario: Display Daily Calendar View
     Given User is on the calendar page
+    And User clicks on the six dots
     When User selects the daily view
     Then Daily calendar view is displayed
 
