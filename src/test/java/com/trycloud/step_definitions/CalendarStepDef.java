@@ -10,9 +10,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CalendarStepDef {
 
@@ -28,10 +34,11 @@ public class CalendarStepDef {
 
     }
     @Given("User navigate to {string} module")
-    public void user_navigate_to_module(String string) {
+    public void user_navigate_to_module(String string)  {
 
-       mainPage.calendarIcon.click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
+        mainPage.calendarIcon.click();
+        BrowserUtils.sleep(3);
 
     }
     @Given("User is on the calendar page")
@@ -39,18 +46,19 @@ public class CalendarStepDef {
         String expectedUrl = "https://qa.trycloud.net/index.php/apps/calendar/timeGridDay/now";
         String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals("User is not on the calendar page", expectedUrl, actualUrl);
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
     }
     @And("User clicks on the six dots")
     public void userClicksOnTheSixDots() {
         calendarPage.sixDotsButton.click();
+        BrowserUtils.sleep(3);
     }
 
     @When("User selects the daily view")
     public void userSelectsDailyView() {
         calendarPage.dailyViewButton.click();
-        BrowserUtils.sleep(2);
+
 
     }
     @Then("Daily calendar view is displayed")
@@ -61,8 +69,10 @@ public class CalendarStepDef {
 
     @When("User selects the weekly view")
     public void userSelectsWeeklyView() {
+
+        BrowserUtils.sleep(15);
         calendarPage.weeklyViewButton.click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
     }
 
@@ -75,7 +85,7 @@ public class CalendarStepDef {
     @When("User selects the monthly view")
     public void userSelectsMonthlyView() {
         calendarPage.monthlyViewButton.click();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
     }
 
@@ -88,25 +98,28 @@ public class CalendarStepDef {
     @When("User creates a new event")
     public void userCreatesNewEvent() {
 
-        BrowserUtils.sleep(2);
+
+        BrowserUtils.sleep(3);
         calendarPage.newEventButton.click();
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(3);
 
         calendarPage.eventTitle.click();
         calendarPage.eventTitle.sendKeys("Birthday Party");
 
-        BrowserUtils.sleep(1);
+
+        BrowserUtils.sleep(3);
         calendarPage.saveButton.click();
-
-
 
 
     }
 
     @Then("Event is displayed on the monthly calendar view")
     public void eventIsDisplayedOnMonthlyView() {
+        Assert.assertTrue( calendarPage.displayedEvent.getText().contains("Birthday Party"));
+        BrowserUtils.sleep(5);
 
-    }
+
+      }
 
     }
 
