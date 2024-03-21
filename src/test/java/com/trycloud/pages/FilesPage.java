@@ -10,35 +10,39 @@ import java.util.List;
 public class FilesPage {
     public FilesPage() {
         PageFactory.initElements(Driver.getDriver(), this);
+
     }
 
-    @FindBy(xpath = "//span[@class='icon icon-add']")
+    private final String folderName = "newFolder123";
+    private final String fileName = "Screen";
+
+    @FindBy(xpath = "//a[@class='button new']")
     public WebElement addButton;
-
-
-    //@FindBy(xpath = "//label[@data-action='upload']")
     @FindBy(css = "input[type='file']")
     public WebElement uploadFileButton;
-
-    @FindBy(xpath = "//span[@class='displayname'][normalize-space()='New folder']")
+    @FindBy(xpath = "//a[@data-filetype='folder']")
     public WebElement newFolderButton;
-
-    @FindBy(xpath = "//tr[@class='ui-droppable highlighted']//span[@class='icon icon-more']")
-    public WebElement moreIcon;
-
     @FindBy(xpath = " //span[@class='innernametext']")
     public List<WebElement> uploadedFiles;
-
-    @FindBy(xpath = "//span[text()='Screen']/../../span/a[2]")
-    public WebElement threeDotsMenu;
+    @FindBy(xpath = "//a[@class='action action-menu permanent']")
+    public List<WebElement> threeDotsMenu;
     @FindBy(xpath = "//a[@data-action='Delete']")
     public WebElement deleteButton;
 
-    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']//li")
-    public List<WebElement> listOfDynamicSearchResults;
-
-    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']/li")
-    public WebElement firstSearchResult;
+    @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']")
+    public WebElement actionMenu;
+    @FindBy(xpath = "//*[.='" + fileName + "']/../..//a[2]")
+    public WebElement threeDotsMenuForUploadedFile;
+    @FindBy(xpath = "//input[@value='New folder']")
+    public WebElement folderNameInput;
+    @FindBy(xpath = "//input[@class='icon-confirm']")
+    public WebElement folderConfirm;
+    @FindBy(xpath = "//*[.='" + folderName + "']/../..//a[2]")
+    public WebElement threeDotsMenuForNewFolder;
+    @FindBy(xpath = "//span[@class='dirinfo']")
+    public WebElement foldersCount;
+    @FindBy(xpath = "//span[@class='fileinfo']")
+    public WebElement filesCount;
 
 
 }
