@@ -33,4 +33,12 @@ public class FilesPage {
     public WebElement threeDotsMenu;
     @FindBy(xpath = "//a[@data-action='Delete']")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']//li")
+    public List<WebElement> listOfDynamicSearchResults;
+
+    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']/li")
+    public WebElement firstSearchResult;
+
+
 }
