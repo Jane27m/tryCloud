@@ -44,5 +44,12 @@ public class FilesPage {
     @FindBy(xpath = "//span[@class='fileinfo']")
     public WebElement filesCount;
 
+    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']//li")
+    public List<WebElement> listOfDynamicSearchResults;
+
+    @FindBy(xpath = "//ul[@class='unified-search__results unified-search__results-files']/li")
+    public WebElement firstSearchResult;
+
+
 
 }
