@@ -31,6 +31,9 @@ public class MainPage {
     public WebElement calendarIcon;
     @FindBy(xpath = "(//a[@aria-label='Deck'][1])[1]")
     public WebElement deckIcon;
+    @FindBy(xpath = "//div[@class='logo logo-icon']")
+    public WebElement tryCloudIcon;
+
 
     //RIGHT UPPER CORNER ICONS (HEADER MENU)
     @FindBy(xpath = "//a[@aria-controls='header-menu-unified-search']")
@@ -41,6 +44,10 @@ public class MainPage {
     public WebElement contactsButton;
     @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement accountButton;
+    @FindBy(linkText = "href=/index.php/settings/user")
+    public WebElement settingsButtonUnderAccount;
+
+
 
 
 }
