@@ -16,7 +16,7 @@ public class CalendarPage {
     @FindBy(xpath = "(//span[@class='action-button__text'])[3]")
     public WebElement dailyViewButton;
 
-    @FindBy(xpath = "(//span[.='Week'])")
+    @FindBy(xpath = "(//span[@class='action-button__text'])[4]")
     public WebElement weeklyViewButton;
 
     @FindBy(xpath = "(//span[@class='action-button__text'])[5]")
@@ -31,7 +31,7 @@ public class CalendarPage {
     @FindBy(xpath = "(//button[@class='primary'])")
     public WebElement saveButton;
 
-    @FindBy(xpath = "(//div[@class='fc-event-title fc-sticky' and text()='Birthday Party'])")
+    @FindBy(xpath = "(//div[@class='fc-event-title'])")
     public WebElement displayedEvent;
 
 
