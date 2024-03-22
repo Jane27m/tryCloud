@@ -70,9 +70,8 @@ public class CalendarStepDef {
     @When("User selects the weekly view")
     public void userSelectsWeeklyView() {
 
-        BrowserUtils.sleep(15);
+        BrowserUtils.sleep(5);
         calendarPage.weeklyViewButton.click();
-        BrowserUtils.sleep(3);
 
     }
 
