@@ -3,7 +3,7 @@
 Feature: Calendar Module Functionality
 
   Background:
-    Given the user logged in with username as "User16" and password as "Userpass123"
+    Given the user logged in with username as "User17" and password as "Userpass123"
     And User navigate to "Calender" module
 
   Scenario: Display Daily Calendar View
