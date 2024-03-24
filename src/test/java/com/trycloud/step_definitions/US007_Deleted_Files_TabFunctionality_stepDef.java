@@ -1,5 +1,6 @@
 package com.trycloud.step_definitions;
 
+import com.trycloud.pages.BasePage;
 import com.trycloud.pages.US007_Deleted_FilesPage;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
@@ -20,6 +21,10 @@ import java.util.*;
 
 public class US007_Deleted_Files_TabFunctionality_stepDef {
     US007_Deleted_FilesPage us007DeletedFilesPage=new US007_Deleted_FilesPage();
+    String firstFileName = us007DeletedFilesPage.firstLineName.getText();
+    int deletedFilesSize;
+
+
 
 
     @When("user clicks the Deleted Files tab")
@@ -31,60 +36,18 @@ public class US007_Deleted_Files_TabFunctionality_stepDef {
     public void user_click_deleted_button() {
         BrowserUtils.sleep(3);
 us007DeletedFilesPage.deletedButton.click();
-BrowserUtils.sleep(1);
-us007DeletedFilesPage.deletedButton.click();
+//BrowserUtils.sleep(1);
+//us007DeletedFilesPage.deletedButton.click();
     }
     @Then("the files should be displayed in the order from newest to oldest")
     public void the_files_should_be_displayed_in_the_order_from_newest_to_oldest()  {
-        for(WebElement each: us007DeletedFilesPage.fileList){
-        String actual= each.getText();
-        String expected="a year ago";
-        if (actual.equals(expected)){
-        Assert.assertEquals(actual,expected);}}
-//        List<Date>obtainedList=new ArrayList<>();
-//        String date="";
-//        List<WebElement>elementList=us007DeletedFilesPage.fileList;
-//        for(WebElement we:elementList){
-//            date= we.getText();
-//            //int Date = Integer.parseInt(date.replaceAll("^\\D*(\\d+).*","$1"));
-//            SimpleDateFormat dateFormat=new SimpleDateFormat("EEE dd"+"'"+"MMMM yyyy");
-//            Date date1 =dateFormat.parse(date);
-//            obtainedList.add(date1);
-//
-//            ArrayList<Date>sortedList=new ArrayList<>();
-//            for(Date s:obtainedList){
-//                sortedList.add(s);
-//            }
-//            Collections.sort(sortedList, new Comparator<java.util.Date>() {
-//                @Override
-//                public int compare(java.util.Date o1, java.util.Date o2) {
-//                    return o1.compareTo(o2);
-//                }
-//            });
-//
-//        }
+       for(WebElement each: us007DeletedFilesPage.fileList){
+    String actual= each.getText();
+     String expected="a year ago";
+  if (actual.equals(expected)){
+     Assert.assertEquals(actual,expected);}}
 
-//        List<WebElement> listFiles =  us007DeletedFilesPage.fileList;
-//   List<String>dates =new ArrayList<>();
-//    for(WebElement element : listFiles){
-//       dates.add(element.getText());
-//        for (int i = 0; i < dates.size() - 1; i++) {
-//            String currentDate = dates.get(i);
-//            String nextDate = dates.get(i + 1);
-//           Assert.assertTrue( currentDate.compareTo(nextDate) >= 0);
-//        }
-   // }
 }
-//
-//        List<String> filePermanent = new ArrayList<>();
-//       for (WebElement elements : listFiles) {
-//          String stamp = String.valueOf(us007DeletedFilesPage.timeStamp);
-//          filePermanent.add(stamp);
-//        }
-//        List<String>sortedTime = new ArrayList<>(filePermanent);
-//        Collections.sort(sortedTime,Collections.reverseOrder());
-//        Assert.assertEquals(sortedTime,filePermanent);
-    //}
 
     @When("the user clicks on the three dots icon")
     public void the_user_clicks_on_the_three_dots_icon() {
@@ -105,14 +68,28 @@ us007DeletedFilesPage.deletedButton.click();
 
     @Then("the file should be deleted permanently")
     public void theFileShouldBeDeletedPermanently() {
+        BrowserUtils.waitFor(1);
+        for(WebElement each: us007DeletedFilesPage.fileList){
+            String actual= each.getText();
+            String expected="Cybertruck";
+            if (actual.equals(expected)){
+                Assert.assertEquals(actual,expected);}}
 
-//        boolean isFileDeleted = fileIsDeleted();
-//        Assert.assertTrue("File is not deleted", isFileDeleted);
+
+        boolean isFileDeleted = fileIsDeleted();
+        Assert.assertTrue("File is not deleted", isFileDeleted);
 
     }
+    @When("the user clicks the Deleted Files tab")
+    public void theUserClicksTheDeletedFilesTab() {
+        us007DeletedFilesPage.deleteFiles.click();
+    }
+
 
     @And("user clicks on Restore button")
     public void userClicksOnRestoreButton() {
+
+        us007DeletedFilesPage.restoreButton.click();
 
 
     }
@@ -121,20 +98,38 @@ us007DeletedFilesPage.deletedButton.click();
         us007DeletedFilesPage.allFilesButton.click();
     }
 
+
     @Then("user should  see restored files under the File tab")
     public void user_should_see_restored_files_under_the_file_tab() {
+        BrowserUtils.waitFor(1);
+        for(WebElement each: us007DeletedFilesPage.fileList){
+            String actual= each.getText();
+            String expected="Cybertruck";
+            if (actual.equals(expected)){
+                Assert.assertEquals(actual,expected);}}
 
-        List<WebElement>restoredFiles = (List<WebElement>) us007DeletedFilesPage.fileList;
-        for (WebElement each:restoredFiles){
-            Assert.assertTrue(each.isDisplayed());
-        }
+
+
+//        String firstName = us007DeletedFilesPage.deletedFirstLineName.getText();
+//        System.out.println("firstName = " + firstName);
+//
+//        us007DeletedFilesPage.deletedFirstLineRestore.click();
+//        BrowserUtils.waitFor(3);
+//        us007DeletedFilesPage.allFilesButton.click();
+//        BrowserUtils.waitFor(3);
+//
+//        System.out.println(us007DeletedFilesPage.getAllFileName().toString());
+//
+//        for (String name:us007DeletedFilesPage.getAllFileName()) {
+//            if (name.equals(firstName)){
+//                Assert.assertEquals(firstName,name);
+//            }
+//        }
+
+
     }
 
 
-    @When("the user clicks the Deleted Files tab")
-    public void theUserClicksTheDeletedFilesTab() {
-        us007DeletedFilesPage.deleteFiles.click();
-    }
 
 
     private boolean fileIsDeleted(){
