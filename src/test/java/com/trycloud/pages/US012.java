@@ -28,7 +28,7 @@ public class US012 {
     @FindBy(xpath = "//a[@data-action='Details']")
     public WebElement detailButton;
 
-    @FindBy(id = "(//a[@aria-controls='tab-commentsTabView']")
+    @FindBy(xpath = "//a[@aria-controls='tab-commentsTabView']")
     public WebElement commentButton;
     @FindBy(xpath = "//div[@data-placeholder='New comment …']")
     public WebElement commentInput;

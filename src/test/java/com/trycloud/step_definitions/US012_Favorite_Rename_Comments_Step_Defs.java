@@ -43,16 +43,24 @@ public class US012_Favorite_Rename_Comments_Step_Defs {
 
         }
 
-        @And("rename file")
-        public void renameFile (String newName) {
-              newName ="12334";
-            Driver.getDriver().switchTo().activeElement().sendKeys(newName + Keys.ENTER);
-            BrowserUtils.waitFor(2);
-            Driver.getDriver().navigate().refresh();
-
-            }
 
 
+
+    @And("rename file {string}")
+    public void renameFile(String newName) {
+
+        Driver.getDriver().switchTo().activeElement().sendKeys(newName + Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        Driver.getDriver().navigate().refresh();
+    }
+
+    @Then("verify the file is renamed into {string}")
+    public void verifyTheFileIsRenamedInto(String expectedName) {
+        String actualName =  Driver.getDriver().switchTo().activeElement().getText();
+        if (actualName.equals(expectedName)) {
+            Assert.assertEquals(actualName, expectedName);
+        }
+    }
 
             @And("press on details button")
             public void pressOnDetailsButton () {
@@ -63,15 +71,7 @@ public class US012_Favorite_Rename_Comments_Step_Defs {
                 }
 
 
-    @Then("verify the file is renamed")
-    public void verifyTheFileIsRenamed() {
-        String actualName = us012.renameInput.getText();
-        String expectedName = "12345";
-        if (actualName.equals(expectedName)) {
-            Assert.assertEquals(actualName, expectedName);
-        }
 
-    }
             @And("press on comments button")
             public void pressOnCommentsButton () {
                 BrowserUtils.sleep(3);
@@ -80,16 +80,14 @@ public class US012_Favorite_Rename_Comments_Step_Defs {
                 us012.commentButton.click();
             }
 
-            @And("put some comment")
-            public void putSomeComment () {
-                 us012.commentInput.sendKeys("Good");
-            }
 
+    @And("put {string} comment")
+    public void putComment(String newWord) {
+        us012.commentInput.sendKeys(newWord);
+    }
             @And("press on post button")
             public void pressOnPostButton () {
-                BrowserUtils.sleep(3);
                 us012.commentPost.click();
-                BrowserUtils.sleep(3);
             }
 
             @Then("verify the file has comment")
@@ -104,6 +102,7 @@ public class US012_Favorite_Rename_Comments_Step_Defs {
     public void userClicksOnThreeDotsButton() {
         us012.threeDotsMenu.click();
     }
+
 
 
 }
